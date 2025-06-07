@@ -9,3 +9,21 @@ body, h1, h2, p, a{
     margin: 0;
     padding: 0;
 }
+
+
+h1, h2, p, a{
+    color: var(--main_green);
+}
+
+h1{
+    font-family: 'RobotoBlack', sans-serif;
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+h2{
+   
+}
+
+p{
+    
+}

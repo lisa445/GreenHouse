@@ -1,48 +1,135 @@
-h1{
-    text-align: center;
-    color: var(--main_green);
-    font-family: 'RobotoBlack';
-    font-size: 40px;
-    grid-column: 2/ span 1;
-    margin-bottom: 50px;
+:root {
+  --input-height: 60px;
+  --button-height: 70px;
+  --mobile-padding: 16px;
+  --form-content-width: 600px;
+  --section-spacing: 300px; /* Добавляем переменную для отступа */
 }
 
-a{
-    text-align: center;
-    color: var(--main_green);
-    font-family: 'RobotoBlack';
-    grid-column: 2/ span 1;
-    font-size: 24px;
+/* Основной контейнер для контента между header и footer */
+.main-content {
+  min-height: calc(100vh - (высота_header + высота_footer + var(--section-spacing)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центрируем содержимое по вертикали */
+  padding: calc(var(--section-spacing)/2) 0; /* Распределяем отступ сверху и снизу */
 }
 
-input{
-    font-family: 'RobotoRegular';
-    font-size: 24px;
-    background-color: none;
-    border: 1px solid var(--main_green);
-    border-radius: 20px;
-    color: var(--main_green);
-    grid-column: 2/ span 1;
-    margin-bottom: 40px;
-    width: 600px; /* Можно задать такую же ширину, как у кнопки */
-    height: 60px; /* Примерная высота для полей ввода */
-    padding: 0 20px; /* Отступы текста от краев */
+/* Базовые стили формы */
+form {
+  display: grid;
+  grid-template-columns: 
+    minmax(var(--mobile-padding), 1fr) 
+    minmax(auto, var(--form-content-width)) 
+    minmax(var(--mobile-padding), 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0; /* Увеличиваем отступы внутри формы */
 }
 
-input::placeholder{
-    color:var(--main_green);
-    opacity: 0.7;
+/* Остальные стили остаются без изменений */
+form > * {
+  grid-column: 2;
+  width: 100%;
+  max-width: var(--form-content-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-form{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    justify-items: center;
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-form button{
-    grid-column: 2/ span 1;
-    width: 100%;
-    height: 70px;
+input {
+  font-family: 'RobotoRegular', sans-serif;
+  font-size: clamp(18px, 3vw, 24px);
+  background-color: transparent;
+  border: 2px solid var(--main_green);
+  border-radius: 20px;
+  color: var(--main_green);
+  height: var(--input-height);
+  padding: 0 20px;
+  transition: box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+a { 
+  font-family: 'RobotoRegular', sans-serif;
+  font-size: clamp(18px, 3vw, 24px);
+  color: var(--main_green);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding: 5px 0;
+}
+
+a:hover {
+  color: var(--dark_green);
+  transform: translateY(-2px);
+}
+
+a:active {
+  transform: translateY(0);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--dark_green);
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+form a {
+  text-align: center;
+}
+
+form button {
+  height: var(--button-height);
+  font-family: 'RobotoBlack', sans-serif;
+  font-size: clamp(20px, 3vw, 24px);
+  background-color: var(--main_green);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --form-content-width: 90%;
+    --section-spacing: 150px; /* Уменьшаем отступ на мобильных */
+  }
+  
+  form {
+    grid-template-columns: var(--mobile-padding) 1fr var(--mobile-padding);
+    gap: 20px;
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 412px) {
+  input, form button {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+  
+  :root {
+    --section-spacing: 100px; /* Еще меньше отступ на маленьких экранах */
+  }
 }

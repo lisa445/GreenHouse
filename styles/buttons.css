@@ -1,6 +1,6 @@
 .primary_reg{
     font-family: 'RobotoRegular';
-    font-size: 20px;
+    font-size: clamp(20px, 3vw, 24px);
     background: var(--main_green);
     color: white;
     border: 1px solid var(--main_green);

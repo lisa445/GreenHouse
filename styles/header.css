@@ -1,23 +1,145 @@
-.header{
-    
-}
-nav{
+nav {
     background: white;
     display: flex;
-    border: 1px solid black;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid transparent; /* Бесцветная граница */
+    border-radius: 20px; /* Радиус скругления */
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky; /* Фиксированная позиция при прокрутке */
+    top: 0; /* Прилипает к верху */
+    z-index: 1000; /* Чтобы было поверх других элементов */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень снизу */
+    margin: 10px; /* Отступ от краев */
+    transition: all 0.3s ease; /* Плавные переходы */
 }
-nav div a{
+
+nav:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Усиленная тень при наведении */
+}
+
+nav img {
+    height: auto;
+    max-width: 180px;
+    width: 100%;
+    transition: transform 0.3s ease; /* Плавное изменение размера */
+}
+
+nav img:hover {
+    transform: scale(1.05); /* Эффект увеличения при наведении */
+}
+
+nav > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav div a {
     color: var(--main_green);
     text-decoration: none;
     font-family: 'RobotoRegular';
     font-weight: 300;
-    font-size: 24px;
+    font-size: clamp(16px, 2vw, 24px);
+    transition: color 0.3s;
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 10px;
 }
 
-nav div a:hover{
+nav div a:hover {
     color: var(--dark_green);
+    background-color: rgba(0, 128, 0, 0.05); /* Легкий фон при наведении */
+}
+
+nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+nav button:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Легкий фон при наведении */
+}
+
+nav button img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+nav button:hover img {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 15px;
+        gap: 10px;
+        border-radius: 15px;
+        margin: 8px;
+    }
+    
+    nav > div {
+        gap: 15px;
+    }
+    
+    nav img {
+        max-width: 140px;
+    }
+    
+    nav button img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    nav div a {
+        padding: 6px 10px;
+        font-size: clamp(14px, 1.8vw, 20px);
+    }
+}
+
+/* Версия для очень маленьких экранов */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        border-radius: 12px;
+        margin: 5px;
+    }
+    
+    nav > div {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    nav > div:first-of-type {
+        order: 2;
+        justify-content: space-around;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(0,0,0,0.05); /* Легкая граница */
+    }
+    
+    nav > div:last-of-type {
+        order: 1;
+        justify-content: flex-end;
+    }
+    
+    nav img {
+        max-width: 120px;
+        margin: 0 auto;
+    }
+    
+    nav button {
+        padding: 6px;
+    }
 }
