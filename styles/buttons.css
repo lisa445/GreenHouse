@@ -1,0 +1,14 @@
+.primary_reg{
+    font-family: 'RobotoRegular';
+    font-size: 20px;
+    background: var(--main_green);
+    color: white;
+    border: 1px solid var(--main_green);
+    border-radius: 20px;
+    /*padding: 20px 180px;*/
+    transform: scale(1.01);
+}
+
+.primary_reg:hover{
+    background: var(--dark_green);
+}

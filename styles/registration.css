@@ -1,0 +1,48 @@
+h1{
+    text-align: center;
+    color: var(--main_green);
+    font-family: 'RobotoBlack';
+    font-size: 40px;
+    grid-column: 2/ span 1;
+    margin-bottom: 50px;
+}
+
+a{
+    text-align: center;
+    color: var(--main_green);
+    font-family: 'RobotoBlack';
+    grid-column: 2/ span 1;
+    font-size: 24px;
+}
+
+input{
+    font-family: 'RobotoRegular';
+    font-size: 24px;
+    background-color: none;
+    border: 1px solid var(--main_green);
+    border-radius: 20px;
+    color: var(--main_green);
+    grid-column: 2/ span 1;
+    margin-bottom: 40px;
+    width: 600px; /* Можно задать такую же ширину, как у кнопки */
+    height: 60px; /* Примерная высота для полей ввода */
+    padding: 0 20px; /* Отступы текста от краев */
+}
+
+input::placeholder{
+    color:var(--main_green);
+    opacity: 0.7;
+}
+
+form{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+}
+
+form button{
+    grid-column: 2/ span 1;
+    width: 100%;
+    height: 70px;
+}
