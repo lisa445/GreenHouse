@@ -1,0 +1,23 @@
+.header{
+    
+}
+nav{
+    background: white;
+    display: flex;
+    border: 1px solid black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 10px;
+}
+nav div a{
+    color: var(--main_green);
+    text-decoration: none;
+    font-family: 'RobotoRegular';
+    font-weight: 300;
+    font-size: 24px;
+}
+
+nav div a:hover{
+    color: var(--dark_green);
+}
